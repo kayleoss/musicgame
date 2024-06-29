@@ -47,7 +47,7 @@ $(document).ready(function(){
                         $('.showkeys > p:last').css("background", "rgba(2, 143, 2, 0.65)")
                     } else {
                         if (!$('.showkeys > p:last').hasClass('evaluated')) {
-                            writeScore(-50)
+                            writeScore(-500)
                             $('.showkeys > p:last').addClass('evaluated')
                             $('.showkeys > p:last').css("background", "rgba(231, 36, 0, 0.65)")
                         }
@@ -65,21 +65,33 @@ $(document).ready(function(){
                         $('.showkeys').empty();
                     }
 
-                    if (key > 2000 && key <= 3800) {
+                    if (key > 2000 && key <= 3500) {
                         const el = '<p class="neutral" data-key="f">F</p>'
                         $('.showkeys').append(el)
                         key = 0;
                     }
-                    if (key > 3800 && key <= 4000) {
+                    if (key > 3500 && key <= 3900) {
                         $('.showkeys').append('<p class="neutral" data-key="g">G</p>')
+                        key = 0;
+                    }
+                    if (key > 3900 && key <= 4000) {
+                        $('.showkeys').append('<p class="neutral" data-key="b">B</p>')
                         key = 0;
                     }
                     if (key > 4000 && key <= 4200) {
                         $('.showkeys').append('<p class="neutral" data-key="r">R</p>')
                         key = 0;
                     }
-                    if (key > 4200 && key <= 4500) {
+                    if (key > 4200 && key <= 4300) {
                         $('.showkeys').append('<p class="neutral" data-key="w">W</p>')
+                        key = 0;
+                    }
+                    if (key > 4300 && key <= 4400) {
+                        $('.showkeys').append('<p class="neutral" data-key="v">V</p>')
+                        key = 0;
+                    }
+                    if (key > 4400 && key <= 4500) {
+                        $('.showkeys').append('<p class="neutral" data-key="d">D</p>')
                         key = 0;
                     }
                     if (key > 4500 && key <= 5000) {
