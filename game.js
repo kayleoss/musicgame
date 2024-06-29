@@ -66,25 +66,29 @@ $(document).ready(function(){
                     }
 
                     console.log(key)
-                    if (key > 2000 && key <= 5200) {
+                    if (key > 2000 && key <= 3800) {
                         const el = '<p class="neutral" data-key="f">F</p>'
                         $('.showkeys').append(el)
                         key = 0;
                     }
-                    if (key > 5200 && key <= 5300) {
+                    if (key > 3800 && key <= 4000) {
                         $('.showkeys').append('<p class="neutral" data-key="g">G</p>')
                         key = 0;
                     }
-                    if (key > 5300 && key <= 5400) {
+                    if (key > 4000 && key <= 4200) {
                         $('.showkeys').append('<p class="neutral" data-key="r">R</p>')
                         key = 0;
                     }
-                    if (key > 5400 && key <= 5600) {
+                    if (key > 4200 && key <= 4500) {
                         $('.showkeys').append('<p class="neutral" data-key="w">W</p>')
                         key = 0;
                     }
-                    if (key > 5600) {
+                    if (key > 4500 && key <= 5000) {
                         $('.showkeys').append('<p class="neutral" data-key="a">A</p>')
+                        key=0;
+                    }
+                    if (key > 5000) {
+                        $('.showkeys').append('<p class="neutral" data-key="c">C</p>')
                         key=0;
                     }
                 }
