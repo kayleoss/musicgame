@@ -76,3 +76,7 @@ p {
     color: rgb(226, 0, 226);
     text-shadow: 1px 3px rgb(53, 2, 81);
 }
+#score {
+    color: yellow;
+    text-shadow: 2px 5px orange;
+}

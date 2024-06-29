@@ -65,7 +65,6 @@ $(document).ready(function(){
                         $('.showkeys').empty();
                     }
 
-                    console.log(key)
                     if (key > 2000 && key <= 3800) {
                         const el = '<p class="neutral" data-key="f">F</p>'
                         $('.showkeys').append(el)
