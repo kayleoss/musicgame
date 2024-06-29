@@ -1,0 +1,78 @@
+body {
+    min-height:100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background: black;
+    font-family: "Open Sans", sans-serif;
+    transition: background-image 2s linear;
+}
+.start {
+    display: block;
+    width: 30vw;
+    color: white;
+    padding: 15px;
+    background: rgba(50, 49, 49, 0.442);
+    border: 2px solid rgb(224, 0, 224);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    margin: 10vh auto;
+}
+.showkeys {
+    width:80vw;
+    padding: 0px 15px;
+    margin: 20px auto;
+    background-color: rgba(0, 0, 0, 0.351);
+    backdrop-filter: blur(10px);
+}
+.showkeys p.neutral {
+    display: inline-block;
+    font-size: 100px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 5px 10px rgb(53, 2, 81);
+    background: rgba(60, 0, 157, 0.435);
+    padding: 20px;
+    border: 2px solid rgb(224, 0, 224);
+    transition: background 0.25s ease;
+}
+.centered {
+    margin: 0 auto;
+}
+p {
+    font-size: 20px;
+}
+.text-center {
+    text-align: center;
+}
+.song-button {
+    padding: 10px;
+    color:white;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 0px;
+    box-shadow: none;
+    border: 2px solid rgb(97, 0, 97);
+    transition: box-shadow 0.5s ease;
+}
+.giveupbutton {
+    padding: 10px 20px;
+    color:white;
+    font-weight: bold;
+    font-size:25px;
+    background: rgba(74, 0, 138, 0.28);
+    border-radius: 0px;
+    box-shadow: none;
+    border: 2px solid rgb(97, 0, 97);
+    transition: box-shadow 0.5s ease;
+}
+.song-button:hover {
+    cursor: pointer;
+    box-shadow: 2px 5px black;
+}
+.song-select {
+    font-weight: bold;
+    font-size: 30px;
+    color: rgb(226, 0, 226);
+    text-shadow: 1px 3px rgb(53, 2, 81);
+}
