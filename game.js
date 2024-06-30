@@ -21,6 +21,10 @@ $(document).ready(function(){
                     break;
                 case "shinigamieyes":
                     songName = "Grimes - Shinigami Eyes"
+                    break;
+                case "realiti":
+                    songName = 'Grimes - REALiTi'
+                    break;
                 default:
                     songName = "None"
             }
@@ -137,6 +141,9 @@ $(document).ready(function(){
                 } else if (song === "shinigamieyes") {
                     bpmConverted = 1034.5;
                     var intervalID = setInterval(playNotes, bpmConverted);
+                } else if (song === "realiti") {
+                    bpmConverted = 521.7;
+                    var intervalID = setInterval(playNotes, bpmConverted);
                 }
                 
                 songAudio.addEventListener('ended', () => {
@@ -176,6 +183,9 @@ $(document).ready(function(){
                     break;
                 case "shinigamieyes":
                     songName = 'Grimes - Shinigami Eyes'
+                    break;
+                case "realiti":
+                    songName = 'Grimes - REALiTi'
                     break;
                 default: 
                     songName = 'None'
