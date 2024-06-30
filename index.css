@@ -24,20 +24,16 @@ body {
 .showkeys {
     width:80vw;
     padding: 0px 15px;
-    margin: 20px auto;
-    background-color: rgba(0, 0, 0, 0.351);
-    backdrop-filter: blur(10px);
+    margin: 0px auto;
+    overflow-x: hidden
 }
-.showkeys p.neutral {
-    display: inline-block;
-    font-size: 100px;
-    color: white;
-    font-weight: bold;
-    text-shadow: 5px 10px rgb(53, 2, 81);
-    background: rgba(60, 0, 157, 0.435);
-    padding: 20px;
-    border: 2px solid rgb(224, 0, 224);
-    transition: background 0.25s ease;
+
+.successBox {
+    margin: 0 auto;
+    width: 100px;
+    height:150px;
+    padding:20px;
+    background: rgb(23, 0, 87);
 }
 .centered {
     margin: 0 auto;
@@ -60,6 +56,8 @@ p {
     transition: box-shadow 0.5s ease;
 }
 .giveupbutton {
+    display:inline-block;
+    margin-top: 200px;
     padding: 10px 20px;
     color:white;
     font-weight: bold;
@@ -93,4 +91,20 @@ p {
 }
 hr {
     margin-top: 25px;
+}
+#keyBar {
+    width: 50px;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    padding: 20px;
+}
+.showkeys p.neutral {
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 5px 10px rgb(53, 2, 81);
+    background: rgb(35, 0, 90);
+    border: 2px solid rgb(224, 0, 224);
+    margin: 0;
 }

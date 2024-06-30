@@ -64,97 +64,76 @@ $(document).ready(function(){
 
                 window.addEventListener('keypress', function(e) {
                     if (e.key === $('.showkeys > p:last').data('key') && !$('.showkeys > p:last').hasClass('evaluated')) {
+                        const position = parseFloat($('#keyBar').css('left'))
+                        if(position <= 220) {
                         writeScore(50)
                         $('.showkeys > p:last').addClass('evaluated')
                         $('.showkeys > p:last').css("background", "rgba(2, 143, 2, 0.65)")
+                            $('.successBox').css("background", "rgba(2, 143, 2, 0.65)")
+                        } else {
+                            writeScore(-50)
+                            $('.showkeys > p:last').addClass('evaluated')
+                            $('.successBox').css("background", "rgba(231, 36, 0, 0.65)")
+                        }
                     } else {
                         if (!$('.showkeys > p:last').hasClass('evaluated')) {
                             writeScore(-500)
                             $('.showkeys > p:last').addClass('evaluated')
                             $('.showkeys > p:last').css("background", "rgba(231, 36, 0, 0.65)")
+                            $('.successBox').css("background", "rgba(231, 36, 0, 0.65)")
                         }
                     }
                 })
 
+                $('.showkeys').append('<p id="keyBar" class="neutral" data-key="f">F</p>')
+
+                function randomizeLetter() {
+                    const letters = 'ACGFWVB'
+                    const result = letters.charAt(Math.random() * letters.length)
+                    return result
+                }
+
                 function playNotes() {
                     analyser.getByteFrequencyData(dataArray)
+                    
                     let key = 0;
                     for (i=0; i<bufferLength; i++) {
-                        key += dataArray[i];
-                    }
+                        key = dataArray[i];
+                        let position = parseFloat($('#keyBar').css('left'));
 
-                    if ($('.showkeys').children().length >= 4) {
+                        if (key > 50 && position > 0) {
+                            $('#keyBar').css('left', '-=1px');
+                        }
+
+                        if (position <= 0) {
                         $('.showkeys').empty();
-                    }
+                            const newNote = randomizeLetter(key)
+                            $('.showkeys').append(`<p id="keyBar" class="neutral" data-key="${newNote.toLowerCase()}">${newNote}</p>`)
 
-                    if (key > 2000 && key <= 3500) {
-                        const el = '<p class="neutral" data-key="f">F</p>'
-                        $('.showkeys').append(el)
-                        key = 0;
+                            $('#keyBar').css('left', '90vw');
+                            $('.showkeys > p:last').removeClass('evaluated')
+                            $('.successBox').css('background', 'rgb(23, 0, 87)')
+                        }
                     }
-                    if (key > 3500 && key <= 3900) {
-                        $('.showkeys').append('<p class="neutral" data-key="g">G</p>')
-                        key = 0;
-                    }
-                    if (key > 3900 && key <= 4000) {
-                        $('.showkeys').append('<p class="neutral" data-key="b">B</p>')
-                        key = 0;
-                    }
-                    if (key > 4000 && key <= 4200) {
-                        $('.showkeys').append('<p class="neutral" data-key="r">R</p>')
-                        key = 0;
-                    }
-                    if (key > 4200 && key <= 4300) {
-                        $('.showkeys').append('<p class="neutral" data-key="w">W</p>')
-                        key = 0;
-                    }
-                    if (key > 4300 && key <= 4400) {
-                        $('.showkeys').append('<p class="neutral" data-key="v">V</p>')
-                        key = 0;
-                    }
-                    if (key > 4400 && key <= 4500) {
-                        $('.showkeys').append('<p class="neutral" data-key="d">D</p>')
-                        key = 0;
-                    }
-                    if (key > 4500 && key <= 5000) {
-                        $('.showkeys').append('<p class="neutral" data-key="a">A</p>')
-                        key=0;
-                    }
-                    if (key > 5000) {
-                        $('.showkeys').append('<p class="neutral" data-key="c">C</p>')
-                        key=0;
-                    }
+                    requestAnimationFrame(playNotes);
                 }
 
                 function writeScore(num) {
                     score += num;
                     $('#score').text(score)
                 }
-
-                if (song === "scandalbaby") {
-                    bpmConverted = 923;
-                    //TODO: randomize bpmConverted here have multiple intervals
-                    var intervalID = setInterval(playNotes, bpmConverted);
-                } else if (song === "shunkansentimental") {
-                    bpmConverted = 714.3;
-                    var intervalID = setInterval(playNotes, bpmConverted);
-                } else if (song === "shinigamieyes") {
-                    bpmConverted = 1034.5;
-                    var intervalID = setInterval(playNotes, bpmConverted);
-                } else if (song === "realiti") {
-                    bpmConverted = 521.7;
-                    var intervalID = setInterval(playNotes, bpmConverted);
-                }
                 
                 songAudio.addEventListener('ended', () => {
-                    clearInterval(intervalID); 
+                    $('.gameshow').hide()
+                    cancelAnimationFrame(playNotes)
                     endGame(score, song);
                 });
+                
+                playNotes();
             })
     }
 
     function endGame(score, song) {
-        $('.showkeys').hide();
         $('.scoreh2').css('font-size', '50px;')
         $('.giveupbutton').text('Return')
         
@@ -192,9 +171,9 @@ $(document).ready(function(){
             }
 
             if (data.newScore == true) {
-                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'><span>New high score!!!</span><br> Your score: ${score}</p>`)
+                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'><span>New high score!!!</span><br> Your score: ${score}<br><br><a href='' style="color:white;">End Game</a></p>`)
             } else {
-                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'>Highest score: ${data.score}<br>Your score: ${score}</p>`)
+                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'>Highest score: ${data.score}<br>Your score: ${score}<br><br><a href='' style="color:white;">End Game</a></p>`)
             }
         })
     }
