@@ -19,6 +19,8 @@ $(document).ready(function(){
                 case "shunkansentimental":
                     songName = "Scandal - Shunkan Sentimental"
                     break;
+                case "shinigamieyes":
+                    songName = "Grimes - Shinigami Eyes"
                 default:
                     songName = "None"
             }
@@ -132,6 +134,9 @@ $(document).ready(function(){
                 } else if (song === "shunkansentimental") {
                     bpmConverted = 714.3;
                     var intervalID = setInterval(playNotes, bpmConverted);
+                } else if (song === "shinigamieyes") {
+                    bpmConverted = 1034.5;
+                    var intervalID = setInterval(playNotes, bpmConverted);
                 }
                 
                 songAudio.addEventListener('ended', () => {
@@ -168,6 +173,9 @@ $(document).ready(function(){
                     break;
                 case "shunkansentimental":
                     songName = 'Scandal - Shunkan Sentimental'
+                    break;
+                case "shinigamieyes":
+                    songName = 'Grimes - Shinigami Eyes'
                     break;
                 default: 
                     songName = 'None'
