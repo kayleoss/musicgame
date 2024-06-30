@@ -160,6 +160,7 @@ $(document).ready(function(){
         .then(data => {
             $('.leaderboard').show()
             let songName;
+            console.log(song)
             
             switch (song){
                 case "scandalbaby":
