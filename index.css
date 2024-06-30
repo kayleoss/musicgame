@@ -7,6 +7,9 @@ body {
     font-family: "Open Sans", sans-serif;
     transition: background-image 2s linear;
 }
+.hidden {
+    display: none;
+}
 .start {
     display: block;
     width: 30vw;
@@ -81,4 +84,11 @@ p {
     text-shadow: 2px 5px orange;
     background: rgba(0, 0, 0, 0.477);
     padding: 0px 5px;
+}
+.leaderboard-text span {
+    color: yellow;
+    text-shadow: rgb(223, 70, 0);
+}
+hr {
+    margin-top: 25px;
 }

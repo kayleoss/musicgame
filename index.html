@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>Rhythm Game #1</title>
+    <title>Rhythm Burst</title>
     <link rel="stylesheet" href="index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,18 +13,27 @@
 </head>
 <body>
     <div class="start gamehide">
-        <h1 class="text-center">Rhythm Burst</h1>
-        <p>Hit the correct keys to increase your score. Select song below when you're ready.</p>
-        
-        <p class="song-select text-center">SONG SELECTION:</p>
+        <h1>Rhythm Burst</h1>
+        <p>How to play:<br>Hit the correct keys to increase your score. Hit the wrong keys to lose score. Select song below to start playing.</p>
+        <hr>
+        <h2 class="song-select">Select a song:</h2>
         <button type="button" class="song-button" id="scandalbaby">Scandal - Scandal Baby</button>
         <button type="button" class="song-button" id="shunkansentimental">Scandal - Shunkan Sentimental</button>
+        <hr>
+        <h2 class="song-select">Leaderboard</h2>
+        <div id="leaderboard"></div>
+        <hr>
+        <h2 class="song-select">Song requests</h2>
+        <p>If you'd like a song to be added to the game, <a href='mailto:katie_acting@live.ca' aria-label="Send an email to Katie, developer of Rhythm Burst">email</a> me.</a></p>
     </div>
     <div class="scoreboard text-center gameshow">
        <h2 class="scoreh2">Score: <span id="score"></span></h2>
     </div>
     <div class="showkeys text-center gameshow"></div>
     <div class="text-center gameshow"><a href="" class="gameshow giveupbutton">Give Up</a></div>
+    <div class="start gamehide leaderboard">
+        <h1 class="text-center">Leaderboard</h1>
+    </div>
     <script src="game.js"></script>
 </body>
 </html>

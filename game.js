@@ -1,14 +1,30 @@
 $(document).ready(function(){
-
-    $('.showkeys').hide();
-    $('.scoreboard').hide();
-    $('.giveupbutton').hide();
+    $('.gameshow, .leaderboard').hide();
     $('body').css("background-image", "url('assets/main.PNG')")
 
     $('button.song-button').on('click', function() {
         vcx =  $(this).attr('id') 
         startGame(vcx);
     })
+
+    fetch('https://musicgamebackend.vercel.app/leaderboard')
+    .then(res => res.json())
+    .then(data => {
+        for (const [key, value] of Object.entries(data.scoreData)) {
+            let songName;
+            switch(key) {
+                case "scandalbaby":
+                    songName = "Scandal - Scandal Baby"
+                    break;
+                case "shunkansentimental":
+                    songName = "Scandal - Shunkan Sentimental"
+                    break;
+                default:
+                    songName = "None"
+            }
+            $('#leaderboard').append(`<p class='score'>${songName}: <span>${value}</span></p>`)
+        }
+    }) 
 
     function startGame(song) {
         $('.gamehide').hide();
@@ -111,7 +127,7 @@ $(document).ready(function(){
 
                 if (song === "scandalbaby") {
                     bpmConverted = 923;
-                    //randomize bpmConverted here
+                    //TODO: randomize bpmConverted here have multiple intervals
                     var intervalID = setInterval(playNotes, bpmConverted);
                 } else if (song === "shunkansentimental") {
                     bpmConverted = 714.3;
@@ -120,14 +136,47 @@ $(document).ready(function(){
                 
                 songAudio.addEventListener('ended', () => {
                     clearInterval(intervalID); 
-                    endGame(score);
+                    endGame(score, song);
                 });
             })
     }
 
-    function endGame(score) {
+    function endGame(score, song) {
         $('.showkeys').hide();
         $('.scoreh2').css('font-size', '50px;')
         $('.giveupbutton').text('Return')
+        
+        fetch('https://musicgamebackend.vercel.app/leaderboard',
+            {
+                headers: {
+                  'Accept': 'application/json',
+                  'Content-Type': 'application/json'
+                },
+                method: "POST",
+                body: JSON.stringify({score: 15050, song: song})
+            }
+        )
+        .then(res => res.json())
+        .then(data => {
+            $('.leaderboard').show()
+            let songName;
+            
+            switch (song){
+                case "scandalbaby":
+                    songName = 'Scandal - Scandal Baby'
+                    break;
+                case "shunkansentimental":
+                    songname = 'Scandal - Shunkan Sentimental'
+                    break;
+                default: 
+                    songName = 'None'
+            }
+
+            if (data.newScore == true) {
+                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'><span>New high score!!!</span><br> Your score: ${score}</p>`)
+            } else {
+                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'>Highest score: ${data.score}<br>Your score: ${score}</p>`)
+            }
+        })
     }
 })
