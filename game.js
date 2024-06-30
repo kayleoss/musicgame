@@ -167,7 +167,7 @@ $(document).ready(function(){
                     songName = 'Scandal - Scandal Baby'
                     break;
                 case "shunkansentimental":
-                    songname = 'Scandal - Shunkan Sentimental'
+                    songName = 'Scandal - Shunkan Sentimental'
                     break;
                 default: 
                     songName = 'None'
