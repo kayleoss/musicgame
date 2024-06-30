@@ -153,7 +153,7 @@ $(document).ready(function(){
                   'Content-Type': 'application/json'
                 },
                 method: "POST",
-                body: JSON.stringify({score: 15050, song: song})
+                body: JSON.stringify({score: score, song: song})
             }
         )
         .then(res => res.json())
