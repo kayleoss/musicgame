@@ -2,6 +2,11 @@ $(document).ready(function(){
     $('.gameshow, .leaderboard').hide();
     $('body').css("background-image", "url('assets/main.PNG')")
 
+    if (window.innerWidth < 1260) {
+        $('.songs-selection').empty();
+        $('.songs-selection').append("<p>Your screen size is too small.</p>")
+    }
+
     $('button.song-button').on('click', function() {
         vcx =  $(this).attr('id') 
         startGame(vcx);
@@ -41,7 +46,7 @@ $(document).ready(function(){
         let analyser;
         let score = 0;
 
-        $('body').css("background-image", bgImg)
+        $('body').css({"background-image": bgImg, "background-repeat": 'no-repeat', "background-size": 'cover'})
 
         fetch('https://musicgamebackend.vercel.app/songs/' + song)
             .then(res => res.json())
@@ -95,7 +100,7 @@ $(document).ready(function(){
                             const newNote = randomizeLetter(key)
                             $('.showkeys').append(`<p id="keyBar" class="neutral" data-key="${newNote.toLowerCase()}">${newNote}</p>`)
 
-                            $('#keyBar').css('left', '90vw');
+                            $('#keyBar').css('left', '1200px');
                             $('.showkeys > p:last').removeClass('evaluated')
                             $('.successBox').css('background', 'rgb(23, 0, 87)')
                         }
@@ -129,7 +134,7 @@ $(document).ready(function(){
     }
 
     function randomizeLetter() {
-        const letters = 'ACGFWVB'
+        const letters = 'WASDFGC'
         const result = letters.charAt(Math.random() * letters.length)
         return result
     }
