@@ -7,6 +7,9 @@ body {
     font-family: "Open Sans", sans-serif;
     transition: background-image 2s linear;
 }
+.h1 {
+    text-shadow: 5px 10px black;
+}
 .hidden {
     display: none;
 }
@@ -33,7 +36,9 @@ body {
     width: 100px;
     height:150px;
     padding:20px;
-    background: rgb(23, 0, 87);
+    border:2px solid rgb(224, 0, 224);
+    background: rgba(23, 0, 87, 0.301);
+    backdrop-filter: blur(10px);
 }
 .centered {
     margin: 0 auto;
@@ -53,7 +58,20 @@ p {
     border-radius: 0px;
     box-shadow: none;
     border: 2px solid rgb(97, 0, 97);
-    transition: box-shadow 0.5s ease;
+    transition: border 0.5s ease;
+}
+.song-button:hover {
+    cursor: pointer;
+    border: 2px solid yellow;
+}
+.score {
+    font-weight: bold;
+    text-shadow: 2px 2px black;
+}
+.score span {
+    float: right;
+    font-weight: bold;
+    color: rgb(221, 236, 0);
 }
 .hard, .easy, .medium {
     font-weight: bold;
@@ -79,10 +97,6 @@ p {
     box-shadow: none;
     border: 2px solid rgb(97, 0, 97);
     transition: box-shadow 0.5s ease;
-}
-.song-button:hover {
-    cursor: pointer;
-    box-shadow: 2px 5px black;
 }
 .song-select {
     margin-bottom: 0px;
@@ -118,10 +132,11 @@ hr {
 }
 .showkeys p.neutral {
     font-size: 50px;
+    z-index: 10;
     color: white;
     font-weight: bold;
     text-shadow: 5px 10px rgb(53, 2, 81);
-    background: rgb(35, 0, 90);
+    background: rgba(35, 0, 90, 0.623);
     border: 2px solid rgb(224, 0, 224);
     margin: 0;
 }

@@ -33,7 +33,7 @@ $(document).ready(function(){
                 default:
                     songName = "None"
             }
-            $('#leaderboard').append(`<p class='score'>${songName}: <span>${value}</span></p>`)
+            $('#leaderboard').append(`<p class='score'>${songName} <span>${value}</span></p>`)
         }
     }) 
 
@@ -102,7 +102,7 @@ $(document).ready(function(){
 
                             $('#keyBar').css('left', '1200px');
                             $('.showkeys > p:last').removeClass('evaluated')
-                            $('.successBox').css('background', 'rgb(23, 0, 87)')
+                            $('.successBox').css({'background': 'rgba(23, 0, 87, 0.301)','border': '2px solid rgb(224, 0, 224)'})
                         }
                     }
                     requestAnimationFrame(playNotes);
@@ -126,9 +126,11 @@ $(document).ready(function(){
                 writeScore(score)
                 $('.showkeys > p:last').addClass('evaluated')
                 if (color === 'red') {
-                    $('.showkeys > p:last, .successBox').css("background", "rgba(231, 36, 0, 0.65)")
+                    $('.showkeys > p:last').css('background', "rgba(231, 36, 0, 0.65)")
+                    $('.successBox').css({"background": "rgba(231, 36, 0, 0.65)","border": "2px solid rgba(231, 36, 0, 0.65)"})
                 } else {
-                    $('.showkeys > p:last, .successBox').css("background", "rgba(2, 143, 2, 0.65)")
+                    $('.showkeys > p:last').css('background', "rgba(2, 143, 2, 0.65)")
+                    $('.successBox').css({"background": "rgba(2, 143, 2, 0.65)", "border": "2px solid rgba(2, 143, 2, 0.65)"})
                 }
             }
     }
