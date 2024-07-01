@@ -57,7 +57,6 @@ $(document).ready(function(){
                 audioSource.connect(analyser);
                 analyser.connect(songContext.destination);
                 analyser.fftSize = 64;
-                let bpmConverted;
 
                 const bufferLength = analyser.frequencyBinCount;
                 const dataArray = new Uint8Array(bufferLength);
@@ -65,33 +64,19 @@ $(document).ready(function(){
                 window.addEventListener('keypress', function(e) {
                     if (e.key === $('.showkeys > p:last').data('key') && !$('.showkeys > p:last').hasClass('evaluated')) {
                         const position = parseFloat($('#keyBar').css('left'))
-                        if(position <= 220) {
-                        writeScore(50)
-                        $('.showkeys > p:last').addClass('evaluated')
-                        $('.showkeys > p:last').css("background", "rgba(2, 143, 2, 0.65)")
-                            $('.successBox').css("background", "rgba(2, 143, 2, 0.65)")
+                        if (position <= 220) {
+                            flashResult('green', 50)
                         } else {
-                            writeScore(-50)
-                            $('.showkeys > p:last').addClass('evaluated')
-                            $('.successBox').css("background", "rgba(231, 36, 0, 0.65)")
+                            flashResult('red', -50)
                         }
                     } else {
                         if (!$('.showkeys > p:last').hasClass('evaluated')) {
-                            writeScore(-500)
-                            $('.showkeys > p:last').addClass('evaluated')
-                            $('.showkeys > p:last').css("background", "rgba(231, 36, 0, 0.65)")
-                            $('.successBox').css("background", "rgba(231, 36, 0, 0.65)")
+                            flashResult('red', -500)
                         }
                     }
                 })
 
                 $('.showkeys').append('<p id="keyBar" class="neutral" data-key="f">F</p>')
-
-                function randomizeLetter() {
-                    const letters = 'ACGFWVB'
-                    const result = letters.charAt(Math.random() * letters.length)
-                    return result
-                }
 
                 function playNotes() {
                     analyser.getByteFrequencyData(dataArray)
@@ -106,7 +91,7 @@ $(document).ready(function(){
                         }
 
                         if (position <= 0) {
-                        $('.showkeys').empty();
+                            $('.showkeys').empty();
                             const newNote = randomizeLetter(key)
                             $('.showkeys').append(`<p id="keyBar" class="neutral" data-key="${newNote.toLowerCase()}">${newNote}</p>`)
 
@@ -117,11 +102,6 @@ $(document).ready(function(){
                     }
                     requestAnimationFrame(playNotes);
                 }
-
-                function writeScore(num) {
-                    score += num;
-                    $('#score').text(score)
-                }
                 
                 songAudio.addEventListener('ended', () => {
                     $('.gameshow').hide()
@@ -131,6 +111,27 @@ $(document).ready(function(){
                 
                 playNotes();
             })
+
+            function writeScore(num) {
+                score += num;
+                $('#score').text(score)
+            }
+
+            function flashResult(color, score) {
+                writeScore(score)
+                $('.showkeys > p:last').addClass('evaluated')
+                if (color === 'red') {
+                    $('.showkeys > p:last, .successBox').css("background", "rgba(231, 36, 0, 0.65)")
+                } else {
+                    $('.showkeys > p:last, .successBox').css("background", "rgba(2, 143, 2, 0.65)")
+                }
+            }
+    }
+
+    function randomizeLetter() {
+        const letters = 'ACGFWVB'
+        const result = letters.charAt(Math.random() * letters.length)
+        return result
     }
 
     function endGame(score, song) {
