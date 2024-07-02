@@ -9,7 +9,7 @@ $(document).ready(function(){
 
     $('button.song-button').on('click', function() {
         vcx =  $(this).attr('id')
-        $('.start').hide();
+        window.scrollTo(0, 0);
         $('.getready').show();
         setTimeout(function() {
             startGame(vcx);
@@ -190,9 +190,9 @@ $(document).ready(function(){
             }
 
             if (data.newScore == true) {
-                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'><span>New high score!!!</span><br> Your score: ${score}<br><br><a href='' style="color:white;">End Game</a></p>`)
+                $('.leaderboard').append(`<p class='text-center' style='color:pink'>${songName}</p><p class='leaderboard-text text-center'><span>New high score!!!</span><br> Your score: ${score}<br><br><a href='' style="color:white;">End Game</a></p>`)
             } else {
-                $('.leaderboard').append(`<p class='text-center' style='color:pink'>Song: ${songName}</p><p class='leaderboard-text text-center'>Highest score: ${data.score}<br>Your score: ${score}<br><br><a href='' style="color:white;">End Game</a></p>`)
+                $('.leaderboard').append(`<p class='text-center' style='color:pink'>${songName}</p><p class='leaderboard-text text-center'>Highest score: ${data.score}<br>Your score: ${score}<br><br><a href='' style="color:white;">End Game</a></p>`)
             }
         })
     }
