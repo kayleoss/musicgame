@@ -39,6 +39,9 @@ body {
     border:2px solid rgb(224, 0, 224);
     background: rgba(23, 0, 87, 0.301);
     backdrop-filter: blur(10px);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
 }
 .centered {
     margin: 0 auto;

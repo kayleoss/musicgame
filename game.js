@@ -136,7 +136,7 @@ $(document).ready(function(){
     }
 
     function randomizeLetter() {
-        const letters = 'WASDFGC'
+        const letters = 'WASDF'
         const result = letters.charAt(Math.random() * letters.length)
         return result
     }
