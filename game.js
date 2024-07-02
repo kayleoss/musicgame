@@ -9,6 +9,7 @@ $(document).ready(function(){
 
     $('button.song-button').on('click', function() {
         vcx =  $(this).attr('id')
+        $('.start').hide();
         $('.getready').show();
         setTimeout(function() {
             startGame(vcx);
@@ -33,6 +34,9 @@ $(document).ready(function(){
                 case "realiti":
                     songName = 'Grimes - REALiTi'
                     break;
+                case "aroundtheworld":
+                        songName = 'Daft Punk - Around The World'
+                        break;
                 default:
                     songName = "None"
             }
@@ -177,6 +181,9 @@ $(document).ready(function(){
                     break;
                 case "realiti":
                     songName = 'Grimes - REALiTi'
+                    break;
+                case "aroundtheworld":
+                    songName = 'Daft Punk - Around The World'
                     break;
                 default: 
                     songName = 'None'
