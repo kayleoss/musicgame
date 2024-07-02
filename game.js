@@ -8,8 +8,11 @@ $(document).ready(function(){
     }
 
     $('button.song-button').on('click', function() {
-        vcx =  $(this).attr('id') 
-        startGame(vcx);
+        vcx =  $(this).attr('id')
+        $('.getready').show();
+        setTimeout(function() {
+            startGame(vcx);
+        }, 5000)
     })
 
     fetch('https://musicgamebackend.vercel.app/leaderboard')
@@ -40,6 +43,7 @@ $(document).ready(function(){
     function startGame(song) {
         $('.gamehide').hide();
         $('.gameshow').show();
+        $('.getready').hide();
 
         let bgImg = "url('assets/" + song + ".jpg')"
         let audioSource;
@@ -69,7 +73,7 @@ $(document).ready(function(){
                 window.addEventListener('keypress', function(e) {
                     if (e.key === $('.showkeys > p:last').data('key') && !$('.showkeys > p:last').hasClass('evaluated')) {
                         const position = parseFloat($('#keyBar').css('left'))
-                        if (position <= 220) {
+                        if (position <= 250) {
                             flashResult('green', 50)
                         } else {
                             flashResult('red', -50)
