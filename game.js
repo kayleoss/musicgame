@@ -79,7 +79,7 @@ $(document).ready(function(){
                         const position = parseFloat($('#keyBar').css('left'))
                         if (position <= 250) {
                             flashResult('green', 50)
-                        } else {
+                        } else if (position > 250 && position < 1100) {
                             flashResult('red', -50)
                         }
                     } else {
