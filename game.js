@@ -74,7 +74,7 @@ $(document).ready(function(){
                         }
                     } else {
                         if (!$('.showkeys > p:last').hasClass('evaluated')) {
-                            flashResult('red', -500)
+                            flashResult('red', -100)
                         }
                     }
                 })
@@ -145,9 +145,6 @@ $(document).ready(function(){
             case "scandalbaby":
                 songName = "Scandal - Scandal Baby"
                 break;
-            case "shunkansentimental":
-                songName = "Scandal - Shunkan Sentimental"
-                break;
             case "shinigamieyes":
                 songName = "Grimes - Shinigami Eyes"
                 break;
@@ -160,14 +157,17 @@ $(document).ready(function(){
             case "sohot":
                     songName = "Caroline Polachek - So Hot You're Hurting My Feelings"
                     break;
-            case "onthebeach":
-                    songName = "Caroline Polachek - On The Beach"
-                    break;
             case "nooneintheworld":
                     songName = "Anita Baker - No One In The World"
                     break;
             case "cherishtheday":
                     songName = "Sade - Cherish The Day"
+                    break;
+            case "girlfriend":
+                    songName = "Christine and the Queens - Girlfriend"
+                    break;
+            case "bunnyisarider":
+                    songName = "Caroline Polachek - Bunny Is A Rider"
                     break;
             default:
                 songName = "None"
