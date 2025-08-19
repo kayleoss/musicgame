@@ -19,9 +19,20 @@ body {
     padding: 15px;
     background: rgba(50, 49, 49, 0.442);
     border: 2px solid rgb(224, 0, 224);
-    border-radius: 10px;
+    /* border-radius: 10px; */
     backdrop-filter: blur(10px);
     margin: 20px auto;
+}
+#howToPlay {
+    backdrop-filter: blur(10px);
+}
+.modal-dialog {
+    border: 2px solid rgb(224, 0, 224);
+    backdrop-filter: blur(10px);
+}
+.modal-content {
+    color: white;
+    background: rgba(50, 49, 49, 0.442) !important;
 }
 .showkeys {
     width:80vw;
@@ -32,7 +43,7 @@ body {
 
 .successBox {
     margin: 0 auto;
-    width: 100px;
+    width: 150px;
     height:150px;
     padding:20px;
     border:2px solid rgb(224, 0, 224);
@@ -51,7 +62,7 @@ p {
 .text-center {
     text-align: center;
 }
-.song-button {
+.song-button, .style-button {
     margin-top: 10px;
     padding: 10px;
     color:white;
@@ -60,9 +71,9 @@ p {
     border-radius: 0px;
     box-shadow: none;
     border: 2px solid rgb(97, 0, 97);
-    transition: border 0.5s ease;
+    /* transition: border 0.5s ease; */
 }
-.song-button:hover {
+.style-button:hover, .song-button:hover {
     cursor: pointer;
     border: 2px solid yellow;
 }
@@ -93,16 +104,7 @@ hr {
 .giveupbutton {
     display:inline-block;
     margin-top: 200px;
-    padding: 10px 20px;
-    color:white;
-    font-weight: bold;
-    font-size:25px;
-    background: rgba(74, 0, 138, 0.63);
     text-decoration: none;
-    border-radius: 0px;
-    box-shadow: none;
-    border: 2px solid rgb(255, 251, 0);
-    transition: box-shadow 0.5s ease;
 }
 .song-select {
     margin-bottom: 0px;
@@ -116,6 +118,7 @@ hr {
     color: white;
     padding: 5px 15px;
     background: rgba(0, 0, 0, 0.477);
+    margin-bottom: 0;
 }
 #score {
     color: rgb(255, 110, 243);
@@ -130,7 +133,7 @@ hr {
     margin-top: 25px;
 }
 #keyBar {
-    width: 50px;
+    width: 100px;
     margin: 0 auto;
     position: absolute;
     right: 0;

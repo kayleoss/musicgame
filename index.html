@@ -10,45 +10,71 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="preload" href="assets/aroundtheworld.jpg" as="image">
+    <link rel="preload" href="assets/onthebeach.jpg" as="image">
+    <link rel="preload" href="assets/sohot.jpg" as="image">
     <script
     src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
     crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="modal fade" id="howToPlay" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <h5 class="modal-title text-success" id="modalTitle">How To Play</h5><hr>
+                    <p>Hit the correct key when the letter reaches the box to increase your score. Mistakes cost you points! Select a song to start playing.</p>
+                    <button type="button" class="style-button" data-bs-dismiss="modal">Understood</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     <div class="start gamehide">
         <h1 class="text-center h1">Rhythm Burst</h1>
-        <p>How to play:<br>Hit the correct keys to increase your score. Hit the wrong keys to lose score. Select song below to start playing.</p>
         <hr>
-        <h2 class="song-select">Select a song:</h2>
+        <h2 class="song-select text-center">Select a song to start playing</h2>
         <div class="songs-selection">
             <button type="button" class="song-button" id="scandalbaby">Scandal - Scandal Baby <span class="easy">(Easy)</span></button><br>
+            <button type="button" class="song-button" id="cherishtheday">Sade - Cherish The Day <span class="easy">(Easy)</span></button><br>
             <button type="button" class="song-button" id="aroundtheworld">Daft Punk - Around the world <span class="easy">(Easy)</span></button><br>
+            <button type="button" class="song-button" id="nooneintheworld">Anita Baker - No One In The World <span class="easy">(Easy)</span></button><br>
             <button type="button" class="song-button" id="shinigamieyes">Grimes - Shinigami Eyes <span class="medium">(Medium)</span></button><br>
             <button type="button" class="song-button" id="realiti">Grimes - Realiti <span class="medium">(Medium)</span></button><br>
+            <button type="button" class="song-button" id="onthebeach">Caroline Polachek - On The Beach <span class="medium">(Medium)</span></button><br>
             <button type="button" class="song-button" id="sohot">Caroline Polachek - So Hot You're Hurting My Feelings <span class="hard">(HARD)</span></button><br>
             <button type="button" class="song-button" id="shunkansentimental">Scandal - Shunkan Sentimental <span class="hard">(HARD!)</span></button>
         </div>
         <hr>
-        <h2 class="song-select">Leaderboard</h2>
+        <h2 class="song-select text-center">Leaderboard</h2>
         <div id="leaderboard"></div>
         <hr>
-        <h2 class="song-select">Song requests</h2>
+        <h2 class="song-select text-center">Song requests</h2>
         <p>If you'd like a song to be added to the game, <a href='mailto:katie_acting@live.ca' style="color:white" aria-label="Send an email to Katie, developer of Rhythm Burst">email</a> me.</a></p>
     </div>
     <div class="getready text-center">
-        <h2 class="song-select">GET READY</h2>
+        <h2 class="song-select mt-5">GET READY</h2>
         <p>Play the <span class="medium">Key</span> when it reaches the middle <span class="easy">Box</span></p>
     </div>
     <div class="scoreboard text-center gameshow">
-       <h2 class="scoreh2">Score: <span id="score"></span></h2>
+       <h2 class="scoreh2 mt-5">Score: <span id="score"></span></h2>
     </div>
     <div class="showkeys text-center gameshow"></div>
     <div class="gameshow successBox">Play note here!</div>
-    <div class="text-center gameshow"><a href="" class="gameshow giveupbutton">Give Up</a></div>
+    <div class="text-center gameshow"><a href="" class="gameshow giveupbutton style-button">Give Up</a></div>
     <div class="start gamehide leaderboard">
         <h1 class="text-center">Leaderboard</h1>
     </div>
+    <audio id="clicksound">
+        <source src="assets/click.mp3"></source>
+    </audio>
+    <audio id="hoversound">
+        <source src="assets/hover.m4a"></source>
+    </audio>
     <script src="game.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,10 +1,20 @@
 $(document).ready(function(){
+    $('#howToPlay').modal('show');
+    $('.song-button').mouseenter(function() {
+            const hoverSound = new Audio('assets/hover.m4a');
+            hoverSound.play();
+        }
+    )
+    $('.song-button').click(function() {
+        const clickSound = new Audio('assets/click.mp3');
+        clickSound.play();
+    })
     $('.gameshow, .leaderboard').hide();
     $('body').css("background-image", "url('assets/main.PNG')")
 
     if (window.innerWidth < 1260) {
         $('.songs-selection').empty();
-        $('.songs-selection').append("<p>Your screen size is too small.</p>")
+        $('.songs-selection').append("<p>Your screen size is too small. This game requires a keyboard. It is best played on a laptop or computer.</p>")
     }
 
     $('button.song-button').on('click', function() {
@@ -149,6 +159,15 @@ $(document).ready(function(){
                     break;
             case "sohot":
                     songName = "Caroline Polachek - So Hot You're Hurting My Feelings"
+                    break;
+            case "onthebeach":
+                    songName = "Caroline Polachek - On The Beach"
+                    break;
+            case "nooneintheworld":
+                    songName = "Anita Baker - No One In The World"
+                    break;
+            case "cherishtheday":
+                    songName = "Sade - Cherish The Day"
                     break;
             default:
                 songName = "None"
