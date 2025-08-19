@@ -10,7 +10,7 @@ $(document).ready(function(){
         clickSound.play();
     })
     $('.gameshow, .leaderboard').hide();
-    $('body').css("background-image", "url('assets/main.PNG')")
+    $('body').css({"background-image": "url('assets/main2.jpg')", "background-size": 'cover'})
 
     if (window.innerWidth < 1260) {
         $('.songs-selection').empty();
@@ -44,7 +44,7 @@ $(document).ready(function(){
         let analyser;
         let score = 0;
 
-        $('body').css({"background-image": bgImg, "background-repeat": 'no-repeat', "background-size": 'cover'})
+        $('body').css({"background-image": bgImg, "background-size": 'cover'})
 
         fetch('https://musicgamebackend.vercel.app/songs/' + song)
             .then(res => res.json())

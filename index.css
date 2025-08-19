@@ -1,10 +1,10 @@
 body {
-    min-height:100vh;
+    width:100%;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background: black;
     font-family: "Open Sans", sans-serif;
+}
+.bg-black {
+    background: black;
 }
 .h1 {
     text-shadow: 5px 10px black;
@@ -76,6 +76,8 @@ p {
 .style-button:hover, .song-button:hover {
     cursor: pointer;
     border: 2px solid yellow;
+    box-shadow: 10px 10px 0px rgb(22, 0, 35);
+    transition: box-shadow 0.5s ease;
 }
 .score {
     font-weight: bold;
