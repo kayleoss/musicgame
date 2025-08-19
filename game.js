@@ -147,6 +147,9 @@ $(document).ready(function(){
             case "aroundtheworld":
                     songName = 'Daft Punk - Around The World'
                     break;
+            case "sohot":
+                    songName = "Caroline Polachek - So Hot You're Hurting My Feelings"
+                    break;
             default:
                 songName = "None"
         }
